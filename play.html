@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="wrap"></div>
+<script>
+    // let img = JSON.parse(localStorage.getItem("image"));
+    let count = 0;
+    //document.getElementById("wrap").innerHTML = `<img src="image/${img}.jpg">`;
+    let Play = function (question, answer) {
+        this.question = question;
+        this.answer = answer;
+    };
+
+    let play = [
+        {question: "1", answer: "đồng bộ"},
+        {question: "2", answer: "yêu cầu"},
+        {question: "3", answer: "đồng cam cộng khổ"},
+        {question: "4", answer: "cãi chày cãi cối"},
+        {question: "5", answer: "obama "},
+        {question: "6", answer: "cá chuối"},
+        {question: "7", answer: "cá tính "},
+        {question: "8", answer: "đồng cảm"},
+        {question: "9", answer: "mật mã"},
+        {question: "10", answer: "cá nhân "},
+    ];
+    let answer = "";
+
+    function showQuestion() {
+        console.log();
+        let img = play[count].question;
+        document.getElementById("wrap").innerHTML = `<img src="image/${img}.jpg">
+            <input id="answer" type="text" placeholder="Nhập câu trả lời">
+            <button onclick="Youranswer()">Trả lời</button>`;
+
+        answer = play[count].answer;
+
+    }
+
+
+
+    function Youranswer() {
+        let myAnswer = document.getElementById("answer");
+        if (myAnswer.value == answer) {
+            right = true;
+            alert("trả lời đúng");
+            count++;
+            showQuestion();
+        } else {
+            alert("mời nhập lại");
+        }
+    }
+    showQuestion();
+</script>
+</body>
+</html>
